@@ -87,6 +87,10 @@ if [ ! -f /usr/bin/vncserver ]; then
     pacman -S tigervnc --noconfirm > /dev/null
 fi
 clear
+echo 'Adding VNC patch '
+pacman -U http://tardis.tiny-vps.com/aarm/packages/t/tigervnc/tigervnc-1.10.1-1-aarch64.pkg.tar.xz --noconfirm
+wget https://raw.githubusercontent.com/ultrahacx/AndronixOrigin/master/lib.tar.xz -O /usr/lib/lib.tar.xz
+tar xf /usr/lib/lib.tar.xz -C /usr/lib
 rm -rf ~/.bash_profile" > $folder/root/.bash_profile 
 
 bash $bin
